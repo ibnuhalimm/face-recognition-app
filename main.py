@@ -128,7 +128,7 @@ class Main:
         self.text_label = ttk.Label(master=self.bottom_frame)
         self.text_label.config(background="yellow",
                                text="Ready",
-                               width=25,
+                               width=35,
                                font=(None, 12, "bold"),
                                anchor="center")
         self.text_label.grid(row=1,
