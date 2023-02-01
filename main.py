@@ -188,7 +188,7 @@ class Main:
                 self.text_label.config(background="yellow",
                                        text=blur_threshold)
 
-                if blur_threshold >= 70:
+                if blur_threshold >= 50:
                     self.take_photo(face_crop_color)
 
             flipped_img = cv2.flip(frame, 1)
