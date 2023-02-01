@@ -1,6 +1,4 @@
 import tensorflow as tf
-from keras.models import Sequential
-from keras.layers import Conv2D, MaxPool2D, Dense, Dropout, Flatten
 import os
 from keras.preprocessing import image
 import numpy as np
@@ -12,20 +10,18 @@ class Recognition:
         self.names = np.array([
             "Ibnu",
             "Iin",
+            "Irfan",
             "Kriswanto",
-            "Mustofa"
+            "Pandu",
+            "Ula",
+            "Zainul"
         ])
 
-        self.img_width = 128
-        self.img_height = 128
+        self.img_width = 96
+        self.img_height = 96
 
         self.model_file = os.path.join(os.getcwd(), 'model.h5')
         self.model = tf.keras.models.load_model(self.model_file)
-
-        #self.model_weight_file = os.path.join(os.getcwd(), 'model_weight.h5')
-        #self.model = self.create_model()
-        #self.model.load_weights(self.model_weight_file)
-
         self.predictions = None
 
     def get_model_summary(self):
