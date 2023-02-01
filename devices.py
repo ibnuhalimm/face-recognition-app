@@ -27,8 +27,7 @@ class Devices:
         return working_ports
 
 def main():
-    devices = Devices()
-    print(devices.list_ports())
+    Devices()
 
 if __name__ == '__main__':
     main()
