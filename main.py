@@ -171,8 +171,8 @@ class Main:
             gray_img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             faces = face_cascade.detectMultiScale(gray_img,
                                                   scaleFactor=1.25,
-                                                  minNeighbors=15,
-                                                  minSize=(128, 128),
+                                                  minNeighbors=2,
+                                                  minSize=(96, 96),
                                                   flags=cv2.CASCADE_SCALE_IMAGE)
 
             for (x, y, w, h) in faces:
@@ -188,7 +188,7 @@ class Main:
                 self.text_label.config(background="yellow",
                                        text=blur_threshold)
 
-                if blur_threshold >= 35:
+                if blur_threshold >= 70:
                     self.take_photo(face_crop_color)
 
             flipped_img = cv2.flip(frame, 1)
