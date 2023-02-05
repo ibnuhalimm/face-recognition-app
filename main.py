@@ -111,20 +111,6 @@ class Main:
                                       width=self.vid_width,
                                       height=self.vid_heigth)
 
-        self.text_label = ttk.Label(master=self.toolbar_button_frame)
-        self.text_label.config(background="yellow",
-                               text="Ready",
-                               width=25,
-                               font=(None, 12, "bold"),
-                               anchor="center")
-        # self.text_label.pack(fill=tk.BOTH,
-        #                      expand=True)
-        self.text_label.grid(row=1,
-                             column=1,
-                             padx=1,
-                             ipadx=5,
-                             ipady=5)
-
         self.camera_var = tk.StringVar()
         self.camera_var.set(self.get_webcam_name(self.video_source))
         self.camera_option = ttk.Combobox(self.toolbar_button_frame,
@@ -134,7 +120,7 @@ class Main:
                                           width=15)
         self.camera_option.bind('<<ComboboxSelected>>', self.change_webcam)
         self.camera_option.grid(row=1,
-                                column=2,
+                                column=1,
                                 padx=5,
                                 ipadx=5,
                                 ipady=5)
@@ -143,7 +129,7 @@ class Main:
                                      text="New Window",
                                      command=self.new_window)
         self.button_new.grid(row=1,
-                             column=3,
+                             column=2,
                              padx=5,
                              ipady=1)
 
@@ -151,9 +137,23 @@ class Main:
         #                                     text="Take Photo",
         #                                     command=self.take_photo_manual)
         # self.button_take_photo.grid(row=1,
-        #                             column=4,
+        #                             column=2,
         #                             padx=5,
         #                             ipady=1)
+
+        self.text_label = ttk.Label(master=self.toolbar_button_frame)
+        self.text_label.config(background="yellow",
+                               text="Ready",
+                               width=25,
+                               font=(None, 12, "bold"),
+                               anchor="center")
+        # self.text_label.pack(fill=tk.BOTH,
+        #                      expand=True)
+        self.text_label.grid(row=1,
+                             column=3,
+                             padx=1,
+                             ipadx=5,
+                             ipady=5)
 
     def take_photo_manual(self):
         is_reading, frame = self.vid_cap.read()
